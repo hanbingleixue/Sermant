@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - develop
+name: test
+
+jobs:
+  publish:
+    name: test get branch name
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: echo
+        shell: bash
+        run: |
+          echo ${GITHUB_REF#refs/heads/} 
+          echo ${GITHUB_REF#refs/*/}
+          echo "branchName=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+          cat ./.github/workflows/test.yml
