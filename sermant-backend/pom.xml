@@ -475,7 +475,13 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
-
+            <resource>
+                <directory>../sermant-plugins/config_ui_template</directory>
+                <includes>
+                    <include>*.yml</include>
+                </includes>
+                <targetPath>template</targetPath>
+            </resource>
             <resource>
                 <directory>src/main/webapp/</directory>
                 <excludes>
