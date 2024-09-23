@@ -94,10 +94,10 @@ public class PageTemplateService {
     @PostConstruct
     private void init() {
         try {
-            org.springframework.core.io.Resource resource = resolver.getResource("classpath:template");
-            if (resource.exists()) {
-                String realPath = Paths.get(resource.getURI()).toFile().getAbsolutePath();
-                loadTemplateFile(realPath);
+            org.springframework.core.io.Resource[] resources = resolver.getResources("classpath:template/*.yml");
+            for (org.springframework.core.io.Resource resource : resources) {
+                PageTemplateInfo pageTemplateInfo = yaml.loadAs(resource.getInputStream(), PageTemplateInfo.class);
+                pageTemplateInfoList.add(pageTemplateInfo);
             }
             if (StringUtils.isEmpty(dynamicConfig.getTemplatePath())) {
                 return;
