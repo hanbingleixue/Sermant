@@ -476,7 +476,7 @@
                 <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>../sermant-plugins/config_ui_template</directory>
+                <directory>${project.basedir}/../sermant-plugins/config_ui_template</directory>
                 <includes>
                     <include>*.yml</include>
                 </includes>
