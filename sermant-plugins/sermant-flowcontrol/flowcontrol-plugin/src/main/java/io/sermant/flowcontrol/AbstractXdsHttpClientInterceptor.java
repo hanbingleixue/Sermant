@@ -254,7 +254,6 @@ public abstract class AbstractXdsHttpClientInterceptor extends InterceptorSuppor
 
     private void removeRetriedServiceInstance(Set<ServiceInstance> serviceInstanceSet) {
         RetryPolicy retryPolicy = RetryContext.INSTANCE.getRetryPolicy();
-        retryPolicy.retryMark();
         Set<Object> retriedInstance = retryPolicy.getAllRetriedInstance();
         Set<ServiceInstance> allInstance = new HashSet<>(serviceInstanceSet);
         for (Object retryInstance : retriedInstance) {
